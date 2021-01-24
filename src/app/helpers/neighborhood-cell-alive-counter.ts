@@ -11,8 +11,9 @@ export const neighborhoodCellAliveCounter = (
     const nColoumns = matrix[0].length;
 
     neighborhoodOfCell(coloumnIndex).map((j) => {
+      const isCell = rowIndex === i && coloumnIndex === j;
       if (i >= 0 && i < nRows && j >= 0 && j < nColoumns) {
-        if (matrix[i][j] === 1) {
+        if (matrix[i][j] === 1 && !isCell) {
           acc = acc + 1;
         }
       }

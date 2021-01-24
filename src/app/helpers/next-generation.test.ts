@@ -9,8 +9,8 @@ const matrix: Matrix = [
 
 const outputMatrix: Matrix = [
   [0, 1, 1, 0, 0, 0, 0],
-  [1, 1, 0, 1, 1, 0, 0],
-  [0, 0, 0, 1, 1, 0, 0],
+  [0, 1, 0, 1, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
 ];
 
 test('`nextGeneration` generate a new matrix based on rules of game of life', () => {

@@ -10,7 +10,7 @@ describe('`evaluateCell` evaluate a cell in base of cells alive in neighborhood 
   test('Any live cell with two live neighbours lives on to the next generation.', () => {
     expect(evaluateCell(2, 1)).toBe(1);
   });
-  test('Any live cell with two live neighbours lives on to the next generation.', () => {
+  test('Any live cell with three live neighbours lives on to the next generation.', () => {
     expect(evaluateCell(3, 1)).toBe(1);
   });
   test('Any live cell with more than three live neighbours dies.', () => {
