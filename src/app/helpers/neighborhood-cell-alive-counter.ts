@@ -1,4 +1,4 @@
-import { Matrix } from '../models/matrix';
+import { Matrix } from 'src/app/models/matrix';
 import { neighborhoodOfCell } from './neighborhood-of-cell';
 
 export const neighborhoodCellAliveCounter = (

@@ -1,4 +1,4 @@
-import { Neighborhood } from '../models/neighborhood';
+import { Neighborhood } from 'src/app/models/neighborhood';
 
 const neighborhood: Neighborhood = [-1, 0, 1];
 

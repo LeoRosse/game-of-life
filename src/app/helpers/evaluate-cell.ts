@@ -1,4 +1,4 @@
-import { Cell } from '../models/cell';
+import { Cell } from 'src/app/models/cell';
 
 export const evaluateCell = (
   cellsInNeighborhooAlives: number,
