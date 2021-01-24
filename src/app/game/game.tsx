@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Board, Cell } from '../components/';
-import { FileParser } from '../components/file-reader';
+import { FileParser } from '../components/file-parser';
 import { generateMatrix, nextGeneration } from '../helpers';
 import { Matrix } from '../models';
 
