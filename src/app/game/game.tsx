@@ -1,9 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Board, Cell } from '../components/';
-import { FileParser } from '../components/file-parser';
-import { generateMatrix, nextGeneration } from '../helpers';
-import { Matrix } from '../models';
+import { Board, Cell, FileParser } from 'src/app/components/';
+import { generateMatrix, nextGeneration } from 'src/app/helpers';
+import { Matrix } from 'src/app/models';
 
 const drawMatrix = (matrix: Matrix): JSX.Element[][] =>
   matrix.map((row, i) =>
