@@ -1,0 +1,96 @@
+{
+  "name": "game-of-life",
+  "version": "0.1.0",
+  "private": true,
+  "description": "My version of game of life",
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulsarplatform/csv-uploader.git"
+  },
+  "author": "Leonardo",
+  "license": "UNLICENSED",
+  "files": [
+    "build"
+  ],
+  "typings": "./build/main.d.ts",
+  "homepage": "https://github.com/pulsarplatform/csv-uploader#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
+    "@storybook/react": "^6.1.15",
+    "@types/classnames": "^2.2.11",
+    "@types/jest": "^26.0.15",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@types/styled-components": "^4.4.3",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^26.6.3",
+    "postcss-loader": "^4.1.0",
+    "prettier": "2.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
+    "source-map-loader": "^1.1.2",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "4.2.2",
+    "ts-jest": "^26.4.4",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.0.5",
+    "webpack": "4.41.5",
+    "webpack-cli": "3.3.12"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "styled-components": "^5.2.1",
+    "tslib": "^2.0.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "^@lib/(.*)$": "<rootDir>/src/$1"
+    },
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "warnOnly": true
+        }
+      }
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
