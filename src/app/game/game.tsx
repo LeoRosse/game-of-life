@@ -15,6 +15,7 @@ const GameContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: #cafffb;
 `;
 
 const Game: React.FC<Record<string, unknown>> = () => {
