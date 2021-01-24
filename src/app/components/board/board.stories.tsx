@@ -18,5 +18,5 @@ export const BoardBase = Template.bind({});
 
 BoardBase.args = {
   nRows: 7,
-  nColoumns: 45,
+  nColumns: 45,
 };

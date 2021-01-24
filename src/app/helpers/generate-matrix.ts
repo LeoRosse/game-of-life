@@ -5,10 +5,10 @@ const nCols: number = 45;
 
 export const generateMatrix = (
   rows: number = nRows,
-  coloumn: number = nCols,
+  column: number = nCols,
 ): Matrix =>
   [...Array(rows)].map(() =>
-    [...Array(coloumn)].map(() => {
+    [...Array(column)].map(() => {
       return Math.round(Math.random()) as 0 | 1;
     }),
   );

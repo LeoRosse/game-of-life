@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export interface BoardProps {
   nRows: number;
-  nColoumns: number;
+  nColumns: number;
 }
 
 const BoardContainer = styled.div`
@@ -14,11 +14,11 @@ const BoardContainer = styled.div`
   gap: 0.4rem;
 `;
 
-const Board: React.FC<BoardProps> = ({ children, nColoumns, nRows }) => (
+const Board: React.FC<BoardProps> = ({ children, nColumns, nRows }) => (
   <BoardContainer
     style={{
       gridTemplateRows: `repeat(${nRows}, 1fr)`,
-      gridTemplateColumns: `repeat(${nColoumns}, 1fr)`,
+      gridTemplateColumns: `repeat(${nColumns}, 1fr)`,
     }}
   >
     {children}
