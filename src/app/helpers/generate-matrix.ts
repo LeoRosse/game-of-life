@@ -1,4 +1,4 @@
-import { Matrix } from 'src/app/models';
+import { Matrix } from '../models';
 
 const nRows: number = 7;
 const nCols: number = 45;

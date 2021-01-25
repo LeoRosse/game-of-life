@@ -5,6 +5,8 @@ export interface FileParserProps {
   setMatrix: React.Dispatch<React.SetStateAction<Matrix>>;
 }
 
+// const backgroundColor = #4C2A85
+
 const FileParser: React.FC<FileParserProps> = ({ setMatrix }) => {
   const [inputMatrix, setInputMatrix] = React.useState<Cell[][]>();
 

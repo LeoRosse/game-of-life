@@ -7,8 +7,6 @@ export interface BoardProps {
 }
 
 const BoardContainer = styled.div`
-  width: 80%;
-  margin: 0 auto;
   display: grid;
   place-items: center;
   gap: 0.4rem;

@@ -4,15 +4,17 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 
 import { Board, BoardProps } from './board';
 import { generateMatrix } from '../../helpers';
+import { drawMatrix } from '../../game';
 
 export default {
   title: 'App/Components/Board',
   component: Board,
 } as Meta;
 
-const Template: Story<BoardProps> = (args) => (
-  <Board {...args}>{generateMatrix(7, 45)}</Board>
-);
+const Template: Story<BoardProps> = (args) => {
+  const matrix = generateMatrix();
+  return <Board {...args}>{drawMatrix(matrix)}</Board>;
+};
 
 export const BoardBase = Template.bind({});
 

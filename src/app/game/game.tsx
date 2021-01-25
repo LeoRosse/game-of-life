@@ -4,7 +4,7 @@ import { Board, Cell, FileParser } from 'src/app/components/';
 import { generateMatrix, nextGeneration } from 'src/app/helpers';
 import { Matrix } from 'src/app/models';
 
-const drawMatrix = (matrix: Matrix): JSX.Element[][] =>
+export const drawMatrix = (matrix: Matrix): JSX.Element[][] =>
   matrix.map((row, i) =>
     row.map((_, j) => <Cell key={`${i}|${j}`} alive={matrix[i][j] === 1} />),
   );
@@ -15,7 +15,7 @@ const GameContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: #cafffb;
+  background-color: #320e3b;
 `;
 
 const Game: React.FC<Record<string, unknown>> = () => {
