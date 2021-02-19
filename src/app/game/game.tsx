@@ -1,13 +1,16 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Board, Cell, FileParser } from 'src/app/components/';
-import { generateMatrix, nextGeneration } from 'src/app/helpers';
-import { Matrix } from 'src/app/models';
+import { Board, Cell } from 'src/app/components/';
+import { generateArray, nextGeneration } from 'src/app/helpers-optimization';
+import { Cell as CellModel } from 'src/app/models';
 
-export const drawMatrix = (matrix: Matrix): JSX.Element[][] =>
-  matrix.map((row, i) =>
-    row.map((_, j) => <Cell key={`${i}|${j}`} alive={matrix[i][j] === 1} />),
-  );
+export const drawMatrix = (
+  array: CellModel[],
+  nColumns: number,
+): JSX.Element[] =>
+  array.map((element, i) => (
+    <Cell key={i} alive={element === 1} nColumns={nColumns} />
+  ));
 
 const GameContainer = styled.div`
   display: flex;
@@ -19,11 +22,11 @@ const GameContainer = styled.div`
 `;
 
 const Game: React.FC<Record<string, unknown>> = () => {
-  const [matrix, setMatrix] = React.useState<Matrix>(generateMatrix());
+  const [array, setArray] = React.useState<CellModel[]>(generateArray());
 
   React.useEffect(() => {
     const gameLoop = setInterval(() => {
-      setMatrix(nextGeneration(matrix));
+      setArray(nextGeneration(array, 45));
     }, 1000);
 
     return () => {
@@ -33,10 +36,8 @@ const Game: React.FC<Record<string, unknown>> = () => {
 
   return (
     <GameContainer>
-      <Board nColumns={matrix[0].length} nRows={matrix.length}>
-        {drawMatrix(matrix)}
-      </Board>
-      <FileParser setMatrix={setMatrix} />
+      <Board>{drawMatrix(array, 45)}</Board>
+      {/* <FileParser setArray={setArray} /> */}
     </GameContainer>
   );
 };
