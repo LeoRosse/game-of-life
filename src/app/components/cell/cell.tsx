@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 export interface CellProps {
   alive: boolean;
-  nColumns: number;
+  nColumns: number | undefined;
 }
 
 const liveColor = '#FE019A';
 const deadColor = '#069AF3';
 
 const CellContainer = styled.div<CellProps>`
-  width: ${(props) => `${100 / props.nColumns}%`};
+  width: ${(props) => `${100 / props.nColumns!}%`};
   height: 25px;
   border: 5px solid #320e3b;
   background-color: ${(props) => (props.alive ? liveColor : deadColor)};

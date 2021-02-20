@@ -5,8 +5,6 @@ export interface FileParserProps {
   setMatrix: React.Dispatch<React.SetStateAction<Matrix>>;
 }
 
-// const backgroundColor = #4C2A85
-
 const FileParser: React.FC<FileParserProps> = ({ setMatrix }) => {
   const [inputMatrix, setInputMatrix] = React.useState<Cell[][]>();
 
@@ -16,11 +14,11 @@ const FileParser: React.FC<FileParserProps> = ({ setMatrix }) => {
     reader.onloadend = async () => {
       const textSplitted = reader.result?.toString().split('\n');
       const parsedMatrix = textSplitted
-        ?.slice(2, textSplitted.length - 1)
+        ?.slice(2, textSplitted.length)
         .map((el) =>
           el.split('').map((splitted) => (splitted === '*' ? 1 : 0)),
         );
-      setInputMatrix(parsedMatrix);
+      await setInputMatrix(parsedMatrix);
     };
     if (e?.target?.files) reader.readAsText(e?.target?.files[0]);
   };

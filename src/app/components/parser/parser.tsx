@@ -1,14 +1,15 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import { Cell } from 'src/app/models';
 
 export interface FileParserArrayProps {
-  setArray: React.Dispatch<React.SetStateAction<Cell[]>>;
-  setGameColumns: React.Dispatch<React.SetStateAction<number>>;
+  className?: string;
+  setArray: React.Dispatch<React.SetStateAction<Cell[] | undefined>>;
+  setGameColumns: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-// const backgroundColor = #4C2A85
-
 const FileParserArray: React.FC<FileParserArrayProps> = ({
+  className,
   setArray,
   setGameColumns,
 }) => {
@@ -21,6 +22,7 @@ const FileParserArray: React.FC<FileParserArrayProps> = ({
     reader.onloadend = async () => {
       const textSplitted = reader.result?.toString().split('\n');
       const columnsFromInputFile = parseInt([...textSplitted![1]][2]);
+      await setCols(columnsFromInputFile);
       const parsedArray = textSplitted
         ?.slice(2, textSplitted.length)
         .reduce<Cell[]>((acc, curr) => {
@@ -29,8 +31,7 @@ const FileParserArray: React.FC<FileParserArrayProps> = ({
           );
           return [...acc, ...replace];
         }, []);
-      setInputArray(parsedArray);
-      setCols(columnsFromInputFile);
+      await setInputArray(parsedArray);
     };
     if (e?.target?.files) reader.readAsText(e?.target?.files[0]);
   };
@@ -41,13 +42,29 @@ const FileParserArray: React.FC<FileParserArrayProps> = ({
   }, [cols, inputArray]);
 
   return (
-    <input
-      id="file-upload"
-      type="file"
-      accept="text/plain"
-      onChange={(e) => showFile(e)}
-    />
+    <>
+      <label className={className} htmlFor="file-upload">
+        Upload a file text
+      </label>
+      <input
+        style={{ display: 'none' }}
+        id="file-upload"
+        type="file"
+        accept="text/plain"
+        onChange={(e) => showFile(e)}
+      />
+    </>
   );
 };
 
-export { FileParserArray };
+const Parser = styled(FileParserArray)`
+  background: 'palevioletred';
+  color: 'white';
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+export { Parser };
