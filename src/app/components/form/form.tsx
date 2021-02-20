@@ -12,11 +12,24 @@ export interface FormProps {
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const Title = styled.h1`
   color: #fe019a;
   font-size: 40px;
+  text-transform: uppercase;
+`;
+
+const Text = styled.p`
+  color: #fe019a;
+  font-size: 20px;
 `;
 
 const Form: React.FC<FormProps> = ({
@@ -30,14 +43,18 @@ const Form: React.FC<FormProps> = ({
   return (
     <FormContainer>
       <Title>A journey in... the game of life</Title>
-      <Input onChange={setRows} />
-      <Input onChange={setColumns} />
-      Or
+      <Text>Define how many rows and columns the matrix must have:</Text>
+      <InputContainer>
+        <Input onChange={setRows} />
+        <Text>X</Text>
+        <Input onChange={setColumns} />
+      </InputContainer>
+      <Text>Or</Text>
       {!rows || !columns ? (
         <Parser setArray={setArray} setGameColumns={setGameColumns} />
       ) : (
         <Button
-          onClick={() => {
+          triggerEvent={() => {
             if (!columns || !rows) return;
             setGameColumns(parseInt(columns));
             setGameRows(parseInt(rows));

@@ -3,27 +3,36 @@ import styled from 'styled-components';
 
 export interface ButtonProps {
   className?: string;
-  onClick: () => void;
+  triggerEvent: () => void;
 }
 
 const ButtonElement: React.FC<ButtonProps> = ({
   className,
   children,
-  onClick,
+  triggerEvent,
 }) => (
-  <button className={className} onClick={onClick}>
+  <button
+    type="button"
+    className={className}
+    onClick={triggerEvent}
+    onKeyPress={triggerEvent}
+  >
     {children}
   </button>
 );
 
 const Button = styled(ButtonElement)`
-  background: 'palevioletred';
-  color: 'white';
+  background: #4c2a85;
+  color: #fe019a;
   font-size: 1em;
   margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  padding: 1em 1.5em;
+  border: 2px solid #4c2a85;
   border-radius: 3px;
+  text-transform: uppercase;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export { Button };

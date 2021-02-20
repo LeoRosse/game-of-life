@@ -58,13 +58,20 @@ const FileParserArray: React.FC<FileParserArrayProps> = ({
 };
 
 const Parser = styled(FileParserArray)`
-  background: 'palevioletred';
-  color: 'white';
+  background: #4c2a85;
+  color: #fe019a;
   font-size: 1em;
   margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  padding: 1em 1.5em;
+  border: 2px solid #4c2a85;
   border-radius: 3px;
+  text-transform: uppercase;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export { Parser };

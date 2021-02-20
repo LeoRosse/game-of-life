@@ -21,6 +21,11 @@ const Input = styled(InputElement)`
   background: #4c2a85;
   border: none;
   border-radius: 3px;
+  width: 10%;
+  font-size: 20px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export { Input };
