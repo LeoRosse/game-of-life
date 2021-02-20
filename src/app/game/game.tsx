@@ -7,9 +7,19 @@ import { Cell as CellModel } from 'src/app/models';
 export const drawMatrix = (
   array: CellModel[] | undefined,
   nColumns: number | undefined,
+  setArray: React.Dispatch<React.SetStateAction<CellModel[] | undefined>>,
 ): JSX.Element[] | undefined =>
   array?.map((element, i) => (
-    <Cell key={i} alive={element === 1} nColumns={nColumns} />
+    <Cell
+      key={i}
+      alive={element === 1}
+      nColumns={nColumns}
+      onClick={() => {
+        const foundIndex = array.findIndex((el) => el === element);
+        array[foundIndex] = array[foundIndex] === 0 ? 1 : 0;
+        setArray(array);
+      }}
+    />
   ));
 
 const GameContainer = styled.div`
@@ -51,7 +61,7 @@ const Game: React.FC<Record<string, unknown>> = () => {
           setArray={setArray}
         />
       ) : (
-        <Board>{drawMatrix(array, gameColumns)}</Board>
+        <Board>{drawMatrix(array, gameColumns, setArray)}</Board>
       )}
     </GameContainer>
   );
