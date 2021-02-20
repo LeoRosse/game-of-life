@@ -22,7 +22,6 @@ const FileParserArray: React.FC<FileParserArrayProps> = ({
     const reader = new FileReader();
     reader.onloadend = async () => {
       const textSplitted = reader.result?.toString().split('\n');
-      window.console.log(textSplitted, 'resd');
       const columnsFromInputFile = parseInt([...textSplitted![1]][2]);
       await setCols(columnsFromInputFile);
       const parsedArray = parseArray(textSplitted);
