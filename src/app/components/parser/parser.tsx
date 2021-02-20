@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Cell } from 'src/app/models';
+import { parseArray } from 'src/app/helpers-optimization/parse-array';
 
 export interface FileParserArrayProps {
   className?: string;
@@ -21,16 +22,10 @@ const FileParserArray: React.FC<FileParserArrayProps> = ({
     const reader = new FileReader();
     reader.onloadend = async () => {
       const textSplitted = reader.result?.toString().split('\n');
+      window.console.log(textSplitted, 'resd');
       const columnsFromInputFile = parseInt([...textSplitted![1]][2]);
       await setCols(columnsFromInputFile);
-      const parsedArray = textSplitted
-        ?.slice(2, textSplitted.length)
-        .reduce<Cell[]>((acc, curr) => {
-          const replace = [...curr].map((splitted) =>
-            splitted === '*' ? 1 : 0,
-          );
-          return [...acc, ...replace];
-        }, []);
+      const parsedArray = parseArray(textSplitted);
       await setInputArray(parsedArray);
     };
     if (e?.target?.files) reader.readAsText(e?.target?.files[0]);
