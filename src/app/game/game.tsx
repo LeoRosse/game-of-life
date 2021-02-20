@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Board, Cell } from 'src/app/components/';
 import { generateArray, nextGeneration } from 'src/app/helpers-optimization';
 import { Cell as CellModel } from 'src/app/models';
+import { FileParserArray } from 'src/app/components/file-parser-array';
 
 export const drawMatrix = (
   array: CellModel[],
@@ -23,10 +24,11 @@ const GameContainer = styled.div`
 
 const Game: React.FC<Record<string, unknown>> = () => {
   const [array, setArray] = React.useState<CellModel[]>(generateArray());
+  const [gameColumns, setGameColumns] = React.useState<number>(45);
 
   React.useEffect(() => {
     const gameLoop = setInterval(() => {
-      setArray(nextGeneration(array, 45));
+      setArray(nextGeneration(array, gameColumns));
     }, 1000);
 
     return () => {
@@ -36,8 +38,8 @@ const Game: React.FC<Record<string, unknown>> = () => {
 
   return (
     <GameContainer>
-      <Board>{drawMatrix(array, 45)}</Board>
-      {/* <FileParser setArray={setArray} /> */}
+      <Board>{drawMatrix(array, gameColumns)}</Board>
+      <FileParserArray setArray={setArray} setGameColumns={setGameColumns} />
     </GameContainer>
   );
 };

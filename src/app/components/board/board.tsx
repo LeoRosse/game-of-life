@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const BoardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  max-width: 80%;
 `;
 
 const Board: React.FC<Record<string, unknown>> = ({ children }) => (
