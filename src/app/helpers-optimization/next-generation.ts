@@ -11,7 +11,6 @@ export const nextGeneration = (
   return array.reduce<Cell[]>((acc, curr, i) => {
     const arrayOfNeighbors = neighborhoodOfCell(array, i, nCols);
     const cellAlive = neighborhoodCellAliveCounter(arrayOfNeighbors);
-    curr = evaluateCell(cellAlive, curr);
-    return [...acc, curr];
+    return [...acc, evaluateCell(cellAlive, curr)];
   }, []);
 };
